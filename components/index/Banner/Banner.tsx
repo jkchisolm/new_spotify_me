@@ -1,7 +1,7 @@
 import React from 'react';
 import SpotifyLogo from '../../general/SpotifyLogo';
 
-const Banner = (props: Props) => {
+const Banner = () => {
   return (
     <div className="text-white h-full flex flex-row justify-center items-center py-2">
       <div>
