@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-Black.otf');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-BlackItalic.otf');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-Bold.otf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-BoldItalic.otf');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-Light.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-Light\ Italic.otf');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-Medium.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Circular';
+  src: url('../assets/Circular/CircularStd-MediumItalic.otf');
+  font-weight: normal;
+  font-style: italic;
+}
