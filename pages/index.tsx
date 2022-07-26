@@ -1,11 +1,12 @@
-import React from 'react'
-
-type Props = {}
+import React from 'react';
+import HeroSection from '../components/index/HeroSection/HeroSection';
 
 const index = (props: Props) => {
   return (
-    <div>New Spotify Me Recreation</div>
-  )
-}
+    <div className="h-full min-h-screen w-full min-w-screen bg-gradient-to-br from-amber-400 to-pink-400">
+      <HeroSection />
+    </div>
+  );
+};
 
-export default index
+export default index;
