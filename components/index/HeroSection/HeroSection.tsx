@@ -2,18 +2,73 @@ import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import GetStartedButton from './GetStartedButton';
+import axios from 'axios';
+
+import querystring from 'querystring';
+import { useAuthStore } from '../../../lib/store/zustand';
+import { getSpotifyData } from '../../../lib/spotifyHelpers/getSpotifyData';
 
 const HeroSection = () => {
   const router = useRouter();
 
+  const [codeRetrieved, setCodeRetrieved] = React.useState(false);
+
+  const state = useAuthStore();
+
+  const handleClick = () => {
+    setCodeRetrieved(true);
+    window.location.href =
+      'https://accounts.spotify.com/authorize?' +
+      new URLSearchParams({
+        response_type: 'code',
+        client_id: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
+        scope: 'user-top-read user-read-recently-played',
+        redirect_uri: 'http:/localhost:3000',
+        state: 'xyzzyx'
+      });
+  };
+
   useEffect(() => {
     const path = router.asPath;
-    if (path.startsWith('/?code')) {
-      const accessToken = path.substring(7, path.length - 13);
-      window.localStorage.setItem('accessToken', accessToken);
-      router.push('/me');
+    if (path.startsWith('/?code')) setCodeRetrieved(true);
+    if (path.startsWith('/?code') && codeRetrieved) {
+      const authCode = path.substring(7, path.length - 13);
+      let accessToken: string;
+      let refreshToken: string;
+      axios
+        .post(
+          'https://accounts.spotify.com/api/token',
+          querystring.stringify({
+            code: authCode,
+            redirect_uri: 'http:/localhost:3000',
+            grant_type: 'authorization_code'
+          }),
+          {
+            headers: {
+              Authorization:
+                'Basic ' +
+                btoa(
+                  process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID +
+                    ':' +
+                    process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_SECRET
+                ),
+              'Content-Type': 'application/x-www-form-urlencoded'
+            }
+          }
+        )
+        .then(async function (response) {
+          if (response.status === 200) {
+            accessToken = response.data.access_token;
+            refreshToken = response.data.refresh_token;
+            state.setAccessToken(accessToken);
+            state.setRefreshToken(refreshToken);
+            const data = await getSpotifyData(accessToken);
+            console.log(data);
+            router.push({ pathname: '/me', query: 'yababa' });
+          }
+        });
     }
-  });
+  }, [codeRetrieved]);
   return (
     <div
       className="h-full w-7/12 min-h-full flex flex-col flex-grow justify-center items-center text-indigo-900"
@@ -27,7 +82,7 @@ const HeroSection = () => {
         Understanding People Through Music. Think you know what kind of listener
         you are? Log-in to Spotify.me to see your own streaming in action.
       </div>
-      <GetStartedButton />
+      <GetStartedButton handleClick={handleClick} />
     </div>
   );
 };

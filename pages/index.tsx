@@ -1,3 +1,5 @@
+import axios from 'axios';
+import { GetServerSideProps } from 'next';
 import React, { useEffect } from 'react';
 import Banner from '../components/index/Banner/Banner';
 import HeroSection from '../components/index/HeroSection/HeroSection';
