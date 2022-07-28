@@ -1,11 +1,10 @@
-import { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import GetStartedButton from './GetStartedButton';
 import axios from 'axios';
 
 import querystring from 'querystring';
-import { useAuthStore } from '../../../lib/store/zustand';
+import { useAuthStore, useSpotifyStore } from '../../../lib/store/zustand';
 import { getSpotifyData } from '../../../lib/spotifyHelpers/getSpotifyData';
 
 const HeroSection = () => {
@@ -13,7 +12,8 @@ const HeroSection = () => {
 
   const [codeRetrieved, setCodeRetrieved] = React.useState(false);
 
-  const state = useAuthStore();
+  const authState = useAuthStore();
+  const spotifyState = useSpotifyStore();
 
   const handleClick = () => {
     setCodeRetrieved(true);
@@ -60,15 +60,15 @@ const HeroSection = () => {
           if (response.status === 200) {
             accessToken = response.data.access_token;
             refreshToken = response.data.refresh_token;
-            state.setAccessToken(accessToken);
-            state.setRefreshToken(refreshToken);
+            authState.setAccessToken(accessToken);
+            authState.setRefreshToken(refreshToken);
             const data = await getSpotifyData(accessToken);
-            console.log(data);
-            router.push({ pathname: '/me', query: 'yababa' });
+            spotifyState.setSpotifyData(data);
+            router.push({ pathname: '/me' });
           }
         });
     }
-  }, [codeRetrieved]);
+  }, [codeRetrieved, authState, router, spotifyState]);
   return (
     <div
       className="h-full w-7/12 min-h-full flex flex-col flex-grow justify-center items-center text-indigo-900"
@@ -82,7 +82,10 @@ const HeroSection = () => {
         Understanding People Through Music. Think you know what kind of listener
         you are? Log-in to Spotify.me to see your own streaming in action.
       </div>
-      <GetStartedButton handleClick={handleClick} />
+      <GetStartedButton
+        handleClick={handleClick}
+        text={codeRetrieved ? 'Loading...' : 'GET STARTED'}
+      />
     </div>
   );
 };

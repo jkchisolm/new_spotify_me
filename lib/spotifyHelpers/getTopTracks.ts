@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { SingleTrack } from '../types/spotifyTypes';
 
-type TrackResponse = {
-  // href: string;
+export type TrackResponse = {
   items: SingleTrack[];
 };
 

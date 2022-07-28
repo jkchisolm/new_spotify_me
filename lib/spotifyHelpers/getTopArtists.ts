@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ExtendedArtist } from '../types/spotifyTypes';
 
-type ArtistResponse = {
+export type ArtistResponse = {
   items: ExtendedArtist[];
 };
 
