@@ -8,6 +8,10 @@ const Me = () => {
 
   const spotifyState = useSpotifyStore();
 
+  const setOption = (option: number) => {
+    setCurrentOption(option);
+  };
+
   return (
     <div className="h-full min-h-screen w-full flex flex-col justify-center items-center bg-gradient-to-br from-lime-300 to-cyan-400">
       <div className="mb-32">
@@ -15,8 +19,17 @@ const Me = () => {
       </div>
       <Favorites
         currentOption={currentOption}
-        track={spotifyState.spotifyData.topAllTimeTrack}
-        artist={spotifyState.spotifyData.topAllTimeArtist}
+        setCurrentOption={setOption}
+        track={
+          currentOption == 1
+            ? spotifyState.spotifyData.topRecentTrack
+            : spotifyState.spotifyData.topAllTimeTrack
+        }
+        artist={
+          currentOption == 1
+            ? spotifyState.spotifyData.topRecentArtist
+            : spotifyState.spotifyData.topAllTimeArtist
+        }
       />
     </div>
   );

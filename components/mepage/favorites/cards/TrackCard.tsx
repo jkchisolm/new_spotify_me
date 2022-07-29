@@ -34,7 +34,12 @@ const TrackCard = (props: Props) => {
           </div>
         </div>
         <div>
-          <Image src={props.track.cover} width={400} height={400} />
+          <Image
+            src={props.track.cover}
+            width={400}
+            height={400}
+            layout="fixed"
+          />
         </div>
       </div>
     </div>

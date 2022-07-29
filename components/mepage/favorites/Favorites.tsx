@@ -6,6 +6,7 @@ import TrackCard from './cards/TrackCard';
 
 type Props = {
   currentOption: number;
+  setCurrentOption: (option: number) => void;
   track: FormatReturnType['topRecentTrack'];
   artist: FormatReturnType['topRecentArtist'];
 };
@@ -20,9 +21,12 @@ const Favorites = (props: Props) => {
         Get ready to feel cool. Or much less cool than you thought.
       </div>
       <div>
-        <Selector currentOption={props.currentOption} />
+        <Selector
+          currentOption={props.currentOption}
+          setCurrentOption={props.setCurrentOption}
+        />
       </div>
-      <div className="w-full">
+      <div className="w-full mb-5">
         <TrackCard track={props.track} />
       </div>
       <div className="w-full">
