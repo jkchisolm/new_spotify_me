@@ -11,7 +11,12 @@ const ArtistCard = (props: Props) => {
     <div className="w-full min-w-full">
       <div className="flex flex-row justify-center items-stretch bg-black/[.05]">
         <div>
-          <Image src={props.artist.image} width={400} height={400} />
+          <Image
+            src={props.artist.image}
+            width={400}
+            height={400}
+            alt="Artist cover image"
+          />
         </div>
         <div className="flex-grow text-white">
           <div className="flex flex-col justify-center items-end mt-8 mb-auto">
