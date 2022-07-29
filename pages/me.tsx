@@ -16,6 +16,7 @@ const Me = () => {
       <Favorites
         currentOption={currentOption}
         track={spotifyState.spotifyData.topAllTimeTrack}
+        artist={spotifyState.spotifyData.topAllTimeArtist}
       />
     </div>
   );

@@ -1,11 +1,13 @@
 import React from 'react';
 import { FormatReturnType } from '../../../lib/spotifyHelpers/formatData';
 import Selector from '../selector/Selector';
+import ArtistCard from './cards/ArtistCard';
 import TrackCard from './cards/TrackCard';
 
 type Props = {
   currentOption: number;
   track: FormatReturnType['topRecentTrack'];
+  artist: FormatReturnType['topRecentArtist'];
 };
 
 const Favorites = (props: Props) => {
@@ -22,6 +24,9 @@ const Favorites = (props: Props) => {
       </div>
       <div className="w-full">
         <TrackCard track={props.track} />
+      </div>
+      <div className="w-full">
+        <ArtistCard artist={props.artist} />
       </div>
     </div>
   );
