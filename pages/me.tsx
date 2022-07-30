@@ -16,7 +16,7 @@ const Me = () => {
     setCurrentOption(option);
   };
 
-  const listenScrollEvent = (event: any) => {
+  const listenScrollEvent = () => {
     setBgSetting(styles[`bg-step-${Math.floor(window.scrollY / 125) + 1}`]);
   };
 

@@ -9,9 +9,10 @@ type Props = {
 const GenreBreakdown = (props: Props) => {
   return (
     <div className="basis-1/2 flex flex-col">
-      {props.topGenres.map((genre, key) => {
+      {props.topGenres.map((genre) => {
         return (
           <IndividualGenre
+            key={genre[0]}
             genre={genre[0]}
             percentage={(genre[1] / 50) * 100}
           />
