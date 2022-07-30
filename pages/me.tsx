@@ -45,7 +45,13 @@ const Me = () => {
             : spotifyState.spotifyData.topAllTimeArtist
         }
       />
-      <Genres topGenres={spotifyState.spotifyData.topAllTimeGenres} />
+      <Genres
+        topGenres={
+          currentOption == 1
+            ? spotifyState.spotifyData.topRecentGenres
+            : spotifyState.spotifyData.topAllTimeGenres
+        }
+      />
     </div>
   );
 };

@@ -18,7 +18,9 @@ const IndividualGenre = (props: Props) => {
             style={{ width: `${props.percentage}%` }}
           ></div>
         </div>
-        <div className="text-white ml-2">{props.percentage}%</div>
+        <div className="text-white ml-2 font-bold">
+          {Math.round(props.percentage)}%
+        </div>
       </div>
     </div>
   );
