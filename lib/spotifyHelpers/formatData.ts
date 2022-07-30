@@ -2,6 +2,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { ExtendedArtist, SingleTrack } from '../types/spotifyTypes';
 import { ArtistResponse } from './getTopArtists';
+import { getTopGenres } from './getTopGenres';
 import { TrackResponse } from './getTopTracks';
 
 type SpotifyData = {
@@ -59,6 +60,8 @@ export type FormatReturnType = {
   topAllTimeTrack: ReturnType<typeof getTopTrack>;
   topRecentArtist: Awaited<ReturnType<typeof getTopArtist>>;
   topAllTimeArtist: Awaited<ReturnType<typeof getTopArtist>>;
+  topRecentGenres: ReturnType<typeof getTopGenres>;
+  topAllTimeGenres: ReturnType<typeof getTopGenres>;
 };
 
 export const formatData = async (data: SpotifyData) => {
@@ -74,10 +77,14 @@ export const formatData = async (data: SpotifyData) => {
     topArtists.allTimeArtists.data.items,
     data.accessToken
   );
+  const topRecentGenres = getTopGenres(topArtists.recentArtists.data.items);
+  const topAllTimeGenres = getTopGenres(topArtists.allTimeArtists.data.items);
   return {
     topRecentTrack,
     topAllTimeTrack,
     topRecentArtist,
-    topAllTimeArtist
+    topAllTimeArtist,
+    topRecentGenres,
+    topAllTimeGenres
   };
 };

@@ -22,3 +22,33 @@
   @apply bg-cyan-400;
   transition: 1s;
 }
+
+.bg-step-6 {
+  @apply bg-sky-400;
+  transition: 1s;
+}
+
+.bg-step-7 {
+  @apply bg-blue-400;
+  transition: 1s;
+}
+
+.bg-step-8 {
+  @apply bg-indigo-400;
+  transition: 1s;
+}
+
+.bg-step-9 {
+  @apply bg-violet-400;
+  transition: 1s;
+}
+
+.bg-step-10 {
+  @apply bg-purple-400;
+  transition: 1s;
+}
+
+.bg-step-11 {
+  @apply bg-fuchsia-400;
+  transition: 1s;
+}
