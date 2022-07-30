@@ -7,7 +7,7 @@ import styles from '../styles/Me.module.css';
 const Me = () => {
   const [currentOption, setCurrentOption] = useState(1);
 
-  const [bgSetting, setBgSetting] = useState(styles['bg-step-one']);
+  const [bgSetting, setBgSetting] = useState(styles['bg-step-1']);
 
   const spotifyState = useSpotifyStore();
 
@@ -16,26 +16,15 @@ const Me = () => {
   };
 
   const listenScrollEvent = (event: any) => {
-    console.log(window.scrollY);
-    if (window.scrollY < 150) {
-      setBgSetting(styles['bg-step-one']);
-    } else if (window.scrollY < 300) {
-      setBgSetting(styles['bg-step-two']);
-    } else if (window.scrollY < 450) {
-      setBgSetting(styles['bg-step-three']);
-    }
-    // switch (window.scrollY) {
-    //   case 0:
-    //     setBgSetting(styles['bg-step-one']);
-    //     break;
-    //   case 150:
-    //     setBgSetting(styles['bg-step-two']);
-    //     break;
-    //   case 300:
-    //     setBgSetting(styles['bg-step-three']);
-    //     break;
-    //   default:
-    //     break;
+    console.log(Math.floor(window.scrollY / 100) + 1);
+    setBgSetting(styles[`bg-step-${Math.floor(window.scrollY / 100) + 1}`]);
+    // console.log(window.scrollY);
+    // if (window.scrollY < 150) {
+    //   setBgSetting(styles['bg-step-one']);
+    // } else if (window.scrollY < 300) {
+    //   setBgSetting(styles['bg-step-two']);
+    // } else if (window.scrollY < 450) {
+    //   setBgSetting(styles['bg-step-three']);
     // }
   };
 
