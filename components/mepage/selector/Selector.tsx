@@ -8,7 +8,6 @@ type Props = {
 
 const Selector = (props: Props) => {
   const onClick = (option: number) => {
-    // do something
     props.setCurrentOption(option);
   };
 
