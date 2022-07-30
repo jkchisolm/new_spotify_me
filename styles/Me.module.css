@@ -1,0 +1,22 @@
+.bg-step-one {
+  @apply bg-lime-300;
+  transition: 1s;
+}
+
+.bg-step-two {
+  @apply bg-green-400;
+  transition: 1s;
+}
+
+.bg-step-three {
+  @apply bg-cyan-400;
+  transition: 1s;
+}
+
+/* .bg-gradient-one {
+  @apply bg-gradient-to-b from-lime-300 to-cyan-400 relative;
+}
+
+.bg-gradient-two {
+  @apply bg-gradient-to-br from-orange-400 to-pink-400;
+} */
