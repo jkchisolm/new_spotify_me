@@ -1,9 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import {
-  ExtendedArtist,
-  SingleTrack
-} from '../../../../lib/types/spotifyTypes';
+import { ExtendedArtist } from '../../../../lib/types/spotifyTypes';
 
 type Props = {
   artist: ExtendedArtist;

@@ -1,6 +1,5 @@
 import React from 'react';
 import { FormatReturnType } from '../../../lib/spotifyHelpers/formatData';
-import { SingleTrack } from '../../../lib/types/spotifyTypes';
 import ArtistItem from './chartitems/ArtistItem';
 import TrackItem from './chartitems/TrackItem';
 
