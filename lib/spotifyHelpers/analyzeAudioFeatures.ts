@@ -17,7 +17,6 @@ export const analyzeAudioFeatures = async (
   const valence = audioFeatures.data.audio_features.map(
     (track) => track.valence
   );
-  console.log(valence);
 
   // determine how many tracks are above 0.5 for each category
   const danceabilityCount = danceability.filter((track) => track > 0.6).length;
@@ -26,7 +25,6 @@ export const analyzeAudioFeatures = async (
     (track) => track > 0.05
   ).length;
   const valenceCount = valence.filter((track) => track > 0.25).length;
-  console.log(valenceCount);
 
   // get top 3 tracks for each category
   const topDanceability = audioFeatures.data.audio_features

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { BiPlayCircle } from 'react-icons/bi';
 import { SingleTrack } from '../../../../lib/types/spotifyTypes';
@@ -9,8 +10,14 @@ type Props = {
 const TrackCard = (props: Props) => {
   return (
     <div className="flex flex-col justify-start items-center mx-8 mt-6 mb-8 h-[26rem]">
-      <div className="w-64 h-64">
-        <img src={props.track.album.images[0].url} />
+      <div className="w-64 max-w-[16rem] h-64 max-h-[16rem] relative">
+        <Image
+          src={props.track.album.images[0].url}
+          // width={64}
+          // height={64}
+          layout="fill"
+          alt="Image of the track cover."
+        />
       </div>
       <div className="flex flex-row justify-start items-start w-full pt-3 max-w-[16rem]">
         <div>
