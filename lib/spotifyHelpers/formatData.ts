@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import axios, { AxiosResponse } from 'axios';
 import { ExtendedArtist, SingleTrack } from '../types/spotifyTypes';
+import { analyzeAudioFeatures } from './analyzeAudioFeatures';
 import { ArtistResponse } from './getTopArtists';
 import { getTopGenres } from './getTopGenres';
 import { TrackResponse } from './getTopTracks';
@@ -62,6 +63,8 @@ export type FormatReturnType = {
   topAllTimeArtist: Awaited<ReturnType<typeof getTopArtist>>;
   topRecentGenres: ReturnType<typeof getTopGenres>;
   topAllTimeGenres: ReturnType<typeof getTopGenres>;
+  topRecentTrackFeatures: Awaited<ReturnType<typeof analyzeAudioFeatures>>;
+  topAllTimeTrackFeatures: Awaited<ReturnType<typeof analyzeAudioFeatures>>;
 };
 
 export const formatData = async (data: SpotifyData) => {
@@ -79,12 +82,23 @@ export const formatData = async (data: SpotifyData) => {
   );
   const topRecentGenres = getTopGenres(topArtists.recentArtists.data.items);
   const topAllTimeGenres = getTopGenres(topArtists.allTimeArtists.data.items);
+  const topRecentTrackFeatures = await analyzeAudioFeatures(
+    topTracks.recentTracks.data.items,
+    data.accessToken
+  );
+  const topAllTimeTrackFeatures = await analyzeAudioFeatures(
+    topTracks.allTimeTracks.data.items,
+    data.accessToken
+  );
+
   return {
     topRecentTrack,
     topAllTimeTrack,
     topRecentArtist,
     topAllTimeArtist,
     topRecentGenres,
-    topAllTimeGenres
+    topAllTimeGenres,
+    topRecentTrackFeatures,
+    topAllTimeTrackFeatures
   };
 };

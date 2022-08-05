@@ -52,3 +52,28 @@
   @apply bg-fuchsia-400;
   transition: 1s;
 }
+
+.bg-step-12 {
+  @apply bg-pink-400;
+  transition: 1s;
+}
+
+.bg-step-13 {
+  @apply bg-rose-400;
+  transition: 1s;
+}
+
+.bg-step-14 {
+  @apply bg-red-400;
+  transition: 1s;
+}
+
+.bg-step-15 {
+  @apply bg-orange-400;
+  transition: 1s;
+}
+
+.bg-step-16 {
+  @apply bg-amber-400;
+  transition: 1s;
+}

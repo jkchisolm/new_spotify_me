@@ -17,7 +17,9 @@ const TrackCard = (props: Props) => {
               Your Top Track
             </div>
             <div className="font-bold text-6xl bg-blue-900 w-full text-left py-2 pl-5 mt-6">
-              {props.track.name}
+              {props.track.name.length > 30
+                ? props.track.name.substring(0, 27) + '...'
+                : props.track.name}
             </div>
             <div className="font-bold text-lg text-blue-900 bg-white text-right self-start py-2 px-5">
               {props.track.artist}

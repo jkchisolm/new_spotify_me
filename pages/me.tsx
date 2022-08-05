@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../components/index/Banner/Banner';
+import AudioFeatures from '../components/mepage/audiofeatures/AudioFeatures';
 import Favorites from '../components/mepage/favorites/Favorites';
 import Genres from '../components/mepage/genres/Genres';
 import { useSpotifyStore } from '../lib/store/zustand';
@@ -50,6 +51,13 @@ const Me = () => {
           currentOption == 1
             ? spotifyState.spotifyData.topRecentGenres
             : spotifyState.spotifyData.topAllTimeGenres
+        }
+      />
+      <AudioFeatures
+        audioFeatures={
+          currentOption == 1
+            ? spotifyState.spotifyData.topRecentTrackFeatures
+            : spotifyState.spotifyData.topAllTimeTrackFeatures
         }
       />
     </div>
