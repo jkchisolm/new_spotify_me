@@ -65,6 +65,10 @@ export type FormatReturnType = {
   topAllTimeGenres: ReturnType<typeof getTopGenres>;
   topRecentTrackFeatures: Awaited<ReturnType<typeof analyzeAudioFeatures>>;
   topAllTimeTrackFeatures: Awaited<ReturnType<typeof analyzeAudioFeatures>>;
+  recentTopTenTracks: SingleTrack[];
+  allTimeTopTenTracks: SingleTrack[];
+  recentTopTenArtists: ExtendedArtist[];
+  allTimeTopTenArtists: ExtendedArtist[];
 };
 
 export const formatData = async (data: SpotifyData) => {
@@ -99,6 +103,10 @@ export const formatData = async (data: SpotifyData) => {
     topRecentGenres,
     topAllTimeGenres,
     topRecentTrackFeatures,
-    topAllTimeTrackFeatures
+    topAllTimeTrackFeatures,
+    recentTopTenTracks: topTracks.recentTracks.data.items.slice(0, 10),
+    allTimeTopTenTracks: topTracks.allTimeTracks.data.items.slice(0, 10),
+    recentTopTenArtists: topArtists.recentArtists.data.items.slice(0, 10),
+    allTimeTopTenArtists: topArtists.allTimeArtists.data.items.slice(0, 10)
   };
 };

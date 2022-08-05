@@ -77,3 +77,8 @@
   @apply bg-amber-400;
   transition: 1s;
 }
+
+.bg-step-17 {
+  @apply bg-yellow-400;
+  transition: 1s;
+}

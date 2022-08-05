@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Banner from '../components/index/Banner/Banner';
 import AudioFeatures from '../components/mepage/audiofeatures/AudioFeatures';
+import Charts from '../components/mepage/charts/Charts';
 import Favorites from '../components/mepage/favorites/Favorites';
 import Genres from '../components/mepage/genres/Genres';
 import { useSpotifyStore } from '../lib/store/zustand';
@@ -18,7 +19,13 @@ const Me = () => {
   };
 
   const listenScrollEvent = () => {
-    setBgSetting(styles[`bg-step-${Math.floor(window.scrollY / 125) + 1}`]);
+    let value = 0;
+    if (window.scrollY > 2125) {
+      value = Math.floor(window.scrollY / 125) + 1 - 17;
+    } else {
+      value = Math.floor(window.scrollY / 125) + 1;
+    }
+    setBgSetting(styles[`bg-step-${value}`]);
   };
 
   useEffect(() => {
@@ -58,6 +65,18 @@ const Me = () => {
           currentOption == 1
             ? spotifyState.spotifyData.topRecentTrackFeatures
             : spotifyState.spotifyData.topAllTimeTrackFeatures
+        }
+      />
+      <Charts
+        topTracks={
+          currentOption == 1
+            ? spotifyState.spotifyData.recentTopTenTracks
+            : spotifyState.spotifyData.allTimeTopTenTracks
+        }
+        topArtists={
+          currentOption == 1
+            ? spotifyState.spotifyData.recentTopTenArtists
+            : spotifyState.spotifyData.allTimeTopTenArtists
         }
       />
     </div>

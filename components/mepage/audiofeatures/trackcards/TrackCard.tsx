@@ -13,8 +13,6 @@ const TrackCard = (props: Props) => {
       <div className="w-64 max-w-[16rem] h-64 max-h-[16rem] relative">
         <Image
           src={props.track.album.images[0].url}
-          // width={64}
-          // height={64}
           layout="fill"
           alt="Image of the track cover."
         />
