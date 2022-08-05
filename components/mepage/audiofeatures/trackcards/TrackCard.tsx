@@ -14,7 +14,13 @@ const TrackCard = (props: Props) => {
       </div>
       <div className="flex flex-row justify-start items-start w-full pt-3 max-w-[16rem]">
         <div>
-          <BiPlayCircle className="text-white text-5xl" />
+          <a
+            href={props.track.external_urls.spotify}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <BiPlayCircle className="text-white text-5xl" />
+          </a>
         </div>
         <div className="pl-2">
           <div className="text-xl font-bold text-white">{props.track.name}</div>

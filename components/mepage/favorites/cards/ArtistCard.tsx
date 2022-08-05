@@ -31,7 +31,13 @@ const ArtistCard = (props: Props) => {
             </div>
             <div className="flex flex-row justify-center items-center mt-6 mb-auto self-start ml-4 h-full">
               <div>
-                <BiPlayCircle className="text-white text-5xl" />
+                <a
+                  href={props.artist.topTrackUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <BiPlayCircle className="text-white text-5xl" />
+                </a>
               </div>
               <div className="flex flex-col justify-center items-start px-2 text-white">
                 <div className="font-bold">{props.artist.name}</div>
