@@ -7,7 +7,7 @@ type Props = {
 
 const IndividualGenre = (props: Props) => {
   return (
-    <div className="flex flex-col justify-center items-start text-white mt-2">
+    <div className="flex flex-col justify-center items-start text-white mt-2 w-full">
       <span className="font-bold text-lg capitalize">
         {props.genre == 'edm' ? 'EDM' : props.genre}
       </span>

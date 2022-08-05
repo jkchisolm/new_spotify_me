@@ -8,7 +8,7 @@ type Props = {
 
 const GenreBreakdown = (props: Props) => {
   return (
-    <div className="basis-1/2 flex flex-col">
+    <div className="w-full md:basis-1/2 flex flex-col">
       {props.topGenres.map((genre) => {
         return (
           <IndividualGenre

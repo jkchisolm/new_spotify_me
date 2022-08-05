@@ -8,7 +8,7 @@ type Props = {
 
 const TrackCards = (props: Props) => {
   return (
-    <div className="flex flex-row justify-center items-start">
+    <div className="flex flex-col md:flex-row justify-center items-start">
       {props.topTracks.map((track) => {
         return <TrackCard track={track} key={track.id} />;
       })}

@@ -9,7 +9,7 @@ type Props = {
 
 const TrackCard = (props: Props) => {
   return (
-    <div className="flex flex-col justify-start items-center mx-8 mt-6 mb-8 h-[26rem]">
+    <div className="flex flex-col justify-start items-center mx-8 sm:mt-2 md:mt-6 sm:mb-4 md:mb-8 h-[26rem]">
       <div className="w-64 max-w-[16rem] h-64 max-h-[16rem] relative">
         <Image
           src={props.track.album.images[0].url}

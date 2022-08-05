@@ -20,12 +20,23 @@ const Me = () => {
 
   const listenScrollEvent = () => {
     let value = 0;
-    if (window.scrollY > 2125) {
-      value = Math.floor(window.scrollY / 125) + 1 - 17;
+    if (window.innerWidth < 768) {
+      setBgSetting(styles['bg-step-3']);
     } else {
-      value = Math.floor(window.scrollY / 125) + 1;
+      const divisor = window.innerWidth < 768 ? 125 : 400;
+      if (Math.round(window.scrollY) > divisor * 17) {
+        value =
+          Math.floor(
+            Math.round(window.scrollY) /
+              ((divisor * Math.round(window.scrollY)) % divisor)
+          ) +
+          1 -
+          17;
+      } else {
+        value = Math.floor(window.scrollY / divisor) + 1;
+      }
+      setBgSetting(styles[`bg-step-${value}`]);
     }
-    setBgSetting(styles[`bg-step-${value}`]);
   };
 
   useEffect(() => {
@@ -34,7 +45,7 @@ const Me = () => {
 
   return (
     <div
-      className={`h-full min-h-screen w-full flex flex-col justify-center items-center ${bgSetting}`}
+      className={`h-full min-h-screen w-full min-w-screen flex flex-col justify-center items-center ${bgSetting}`}
     >
       <div className="mb-32">
         <Banner />

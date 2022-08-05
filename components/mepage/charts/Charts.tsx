@@ -13,8 +13,10 @@ const Charts = (props: Props) => {
       <div className="text-2xl font-bold text-white">
         And now, for a final wrap up...
       </div>
-      <div className="text-7xl font-bold text-white py-8">Your top charts</div>
-      <div className="flex flex-row justify-center items-stretch w-full mt-7">
+      <div className="text-7xl font-bold text-white py-8 text-center">
+        Your top charts
+      </div>
+      <div className="flex flex-col md:flex-row justify-center items-stretch w-full mt-7">
         <ChartSection name="Tracks" type="Track" data={props.topTracks} />
         <ChartSection name="Artists" type="Artist" data={props.topArtists} />
       </div>

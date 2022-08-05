@@ -75,8 +75,10 @@ const HeroSection = () => {
       style={{ fontFamily: 'Circular' }}
     >
       <div className="text-2xl font-semibold">Spotify.me</div>
-      <div className="text-7xl font-black pt-2">You are what you stream</div>
-      <div className="text-md pt-2">
+      <div className="text-5xl md:text-7xl font-black pt-2 text-center">
+        You are what you stream
+      </div>
+      <div className="text-sm md:text-md pt-2">
         We&apos;re constantly uncovering new habits in our streaming
         intelligence to teach us more about how people stream—we call it
         Understanding People Through Music. Think you know what kind of listener

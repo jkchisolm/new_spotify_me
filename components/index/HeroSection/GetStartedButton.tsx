@@ -8,8 +8,8 @@ const GetStartedButton = (props: Props) => {
   return (
     <div
       onClick={props.handleClick}
-      className="border-4 border-white rounded-full text-lg
-     text-white px-16 py-3 my-2 hover:bg-white hover:text-indigo-900 hover:cursor-pointer"
+      className="border-4 border-white rounded-full text-md md:text-lg
+     text-white px-12 md:px-16 py-3 my-2 hover:bg-white hover:text-indigo-900 hover:cursor-pointer"
     >
       {props.text}
     </div>

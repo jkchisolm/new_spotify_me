@@ -10,7 +10,7 @@ type Props = {
 const TrackCard = (props: Props) => {
   return (
     <div className="w-full min-w-full">
-      <div className="flex flex-row justify-center items-stretch bg-black/[.05]">
+      <div className="flex flex-col md:flex-row justify-center items-stretch bg-black/[.05]">
         <div className="flex-grow text-white">
           <div className="flex flex-col justify-center items-start mt-8 mb-auto">
             <div className="text-lg bg-black/10  px-4 py-2 font-bold">
@@ -37,12 +37,15 @@ const TrackCard = (props: Props) => {
             </div>
           </div>
         </div>
-        <div>
+        <div
+          className="w-full min-w-full max-w-full h-[24rem] min-h-[24rem]
+        md:w-[25rem] md:max-w-[25rem] md:min-w-[25rem] md:h-[25rem] md:max-h-[25rem] relative"
+        >
           <Image
             src={props.track.cover}
-            width={400}
-            height={400}
-            layout="fixed"
+            // width={400}
+            // height={400}
+            layout="fill"
             alt="Track cover image"
           />
         </div>

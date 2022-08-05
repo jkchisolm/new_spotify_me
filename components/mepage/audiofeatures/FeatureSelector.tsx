@@ -12,7 +12,7 @@ const FeatureSelector = (props: Props) => {
   };
 
   return (
-    <div className="flex flex-row items-center justify-center py-4 w-full my-16 text-white">
+    <div className="flex flex-col md:flex-row items-center justify-center py-4 w-full my-16 text-white">
       <div onClick={() => onClick(1)}>
         <SelectorOption
           selected={props.currentOption == 1 ? true : false}
