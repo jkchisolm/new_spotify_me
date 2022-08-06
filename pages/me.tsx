@@ -13,6 +13,13 @@ const Me = () => {
   const [bgSetting, setBgSetting] = useState(styles['bg-step-1']);
 
   const spotifyState = useSpotifyStore();
+  const [spotifyData, setSpotifyData] = useState(spotifyState.spotifyData);
+
+  const SSR = typeof window === 'undefined';
+
+  useEffect(() => {
+    setSpotifyData(spotifyState.spotifyData);
+  });
 
   const setOption = (option: number) => {
     setCurrentOption(option);
@@ -44,52 +51,56 @@ const Me = () => {
   });
 
   return (
-    <div
-      className={`h-full min-h-screen w-full min-w-screen flex flex-col justify-center items-center ${bgSetting}`}
-    >
-      <div className="mb-32">
-        <Banner />
-      </div>
-      <Favorites
-        currentOption={currentOption}
-        setCurrentOption={setOption}
-        track={
-          currentOption == 1
-            ? spotifyState.spotifyData.topRecentTrack
-            : spotifyState.spotifyData.topAllTimeTrack
-        }
-        artist={
-          currentOption == 1
-            ? spotifyState.spotifyData.topRecentArtist
-            : spotifyState.spotifyData.topAllTimeArtist
-        }
-      />
-      <Genres
-        topGenres={
-          currentOption == 1
-            ? spotifyState.spotifyData.topRecentGenres
-            : spotifyState.spotifyData.topAllTimeGenres
-        }
-      />
-      <AudioFeatures
-        audioFeatures={
-          currentOption == 1
-            ? spotifyState.spotifyData.topRecentTrackFeatures
-            : spotifyState.spotifyData.topAllTimeTrackFeatures
-        }
-      />
-      <Charts
-        topTracks={
-          currentOption == 1
-            ? spotifyState.spotifyData.recentTopTenTracks
-            : spotifyState.spotifyData.allTimeTopTenTracks
-        }
-        topArtists={
-          currentOption == 1
-            ? spotifyState.spotifyData.recentTopTenArtists
-            : spotifyState.spotifyData.allTimeTopTenArtists
-        }
-      />
+    <div>
+      {!SSR ? (
+        <div
+          className={`h-full min-h-screen w-full min-w-screen flex flex-col justify-center items-center ${bgSetting}`}
+        >
+          <div className="mb-32">
+            <Banner />
+          </div>
+          <Favorites
+            currentOption={currentOption}
+            setCurrentOption={setOption}
+            track={
+              currentOption == 1
+                ? spotifyState.spotifyData.topRecentTrack
+                : spotifyState.spotifyData.topAllTimeTrack
+            }
+            artist={
+              currentOption == 1
+                ? spotifyState.spotifyData.topRecentArtist
+                : spotifyState.spotifyData.topAllTimeArtist
+            }
+          />
+          <Genres
+            topGenres={
+              currentOption == 1
+                ? spotifyState.spotifyData.topRecentGenres
+                : spotifyState.spotifyData.topAllTimeGenres
+            }
+          />
+          <AudioFeatures
+            audioFeatures={
+              currentOption == 1
+                ? spotifyState.spotifyData.topRecentTrackFeatures
+                : spotifyState.spotifyData.topAllTimeTrackFeatures
+            }
+          />
+          <Charts
+            topTracks={
+              currentOption == 1
+                ? spotifyState.spotifyData.recentTopTenTracks
+                : spotifyState.spotifyData.allTimeTopTenTracks
+            }
+            topArtists={
+              currentOption == 1
+                ? spotifyState.spotifyData.recentTopTenArtists
+                : spotifyState.spotifyData.allTimeTopTenArtists
+            }
+          />
+        </div>
+      ) : null}
     </div>
   );
 };

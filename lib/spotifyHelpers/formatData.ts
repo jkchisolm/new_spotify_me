@@ -57,18 +57,22 @@ const getTopArtist = async (artist: ExtendedArtist[], accessToken: string) => {
 };
 
 export type FormatReturnType = {
-  topRecentTrack: ReturnType<typeof getTopTrack>;
-  topAllTimeTrack: ReturnType<typeof getTopTrack>;
-  topRecentArtist: Awaited<ReturnType<typeof getTopArtist>>;
-  topAllTimeArtist: Awaited<ReturnType<typeof getTopArtist>>;
-  topRecentGenres: ReturnType<typeof getTopGenres>;
-  topAllTimeGenres: ReturnType<typeof getTopGenres>;
-  topRecentTrackFeatures: Awaited<ReturnType<typeof analyzeAudioFeatures>>;
-  topAllTimeTrackFeatures: Awaited<ReturnType<typeof analyzeAudioFeatures>>;
-  recentTopTenTracks: SingleTrack[];
-  allTimeTopTenTracks: SingleTrack[];
-  recentTopTenArtists: ExtendedArtist[];
-  allTimeTopTenArtists: ExtendedArtist[];
+  topRecentTrack: ReturnType<typeof getTopTrack> | null;
+  topAllTimeTrack: ReturnType<typeof getTopTrack> | null;
+  topRecentArtist: Awaited<ReturnType<typeof getTopArtist>> | null;
+  topAllTimeArtist: Awaited<ReturnType<typeof getTopArtist>> | null;
+  topRecentGenres: ReturnType<typeof getTopGenres> | null;
+  topAllTimeGenres: ReturnType<typeof getTopGenres> | null;
+  topRecentTrackFeatures: Awaited<
+    ReturnType<typeof analyzeAudioFeatures>
+  > | null;
+  topAllTimeTrackFeatures: Awaited<
+    ReturnType<typeof analyzeAudioFeatures>
+  > | null;
+  recentTopTenTracks: SingleTrack[] | null;
+  allTimeTopTenTracks: SingleTrack[] | null;
+  recentTopTenArtists: ExtendedArtist[] | null;
+  allTimeTopTenArtists: ExtendedArtist[] | null;
 };
 
 export const formatData = async (data: SpotifyData) => {
