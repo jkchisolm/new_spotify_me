@@ -11,4 +11,4 @@ All credit goes to Spotify for the idea and design. This is a personal project, 
 - ReactJS
 - Next.js
 - TypeScript
-- Tailwind CSS for styling
+- Tailwind CSS for styles
