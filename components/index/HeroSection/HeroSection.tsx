@@ -23,7 +23,7 @@ const HeroSection = () => {
         response_type: 'code',
         client_id: process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
         scope: 'user-top-read user-read-recently-played',
-        redirect_uri: 'http:/localhost:3000',
+        redirect_uri: 'https://gleaming-donut-7dd30a.netlify.app',
         state: 'xyzzyx'
       });
   };
@@ -40,7 +40,7 @@ const HeroSection = () => {
           'https://accounts.spotify.com/api/token',
           querystring.stringify({
             code: authCode,
-            redirect_uri: 'http:/localhost:3000',
+            redirect_uri: 'https://gleaming-donut-7dd30a.netlify.app',
             grant_type: 'authorization_code'
           }),
           {
