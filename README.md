@@ -5,9 +5,9 @@ Spotify.me recreation
 https://user-images.githubusercontent.com/67846583/185853734-d782da59-c683-4a3a-b29c-b881fe0a9d3a.mov
 
 [![Version](https://img.shields.io/static/v1?label=version&message=1.0.0&color=blue)](https://shields.io/)
-[![Netlify](https://img.shields.io/netlify/90204b60-24c4-4ab5-9bb7-1635a186f45b)](https://shields.io/)
+![Website](https://img.shields.io/website?url=https://meclone.jkchisolm.com)
 
-### [🌐 Website](https://gleaming-donut-7dd30a.netlify.app/)
+### [🌐 Website](https://meclone.jkchisolm.com/)
 
 This project is a recreation of the now defunct Spotify-created statistics tracking page known as Spotify.me. This recreation was built solely by me.
 All credit goes to Spotify for the idea and design. This is a personal project, not made for profit or commercial use.
@@ -58,5 +58,5 @@ npm run dev
 
 ## Author
 Joshua Chisolm
-- Website: [joshuachisolm.com](https://www.joshuachisolm.com)
+- Website: [joshuachisolm.com](https://jkchisolm.com)
 
