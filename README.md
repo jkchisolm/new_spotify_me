@@ -9,7 +9,7 @@ https://user-images.githubusercontent.com/67846583/185853734-d782da59-c683-4a3a-
 
 ### [🌐 Website](https://gleaming-donut-7dd30a.netlify.app/)
 
-This project is a recreation of the now defult Spotify-created statistics trakcing page known as Spotify.me. This recreation was built solely by me.
+This project is a recreation of the now defunct Spotify-created statistics tracking page known as Spotify.me. This recreation was built solely by me.
 All credit goes to Spotify for the idea and design. This is a personal project, not made for profit or commercial use.
 
 
