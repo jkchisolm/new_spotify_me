@@ -83,7 +83,6 @@ const HeroSection = () => {
         intelligence to teach us more about how people stream—we call it
         Understanding People Through Music. Think you know what kind of listener
         you are? Log-in to Spotify.me to see your own streaming in action.
-        We&apos;re back!
       </div>
       <GetStartedButton
         handleClick={handleClick}
